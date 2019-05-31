@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Title here -->
+    <title>懒虫商城-结算--付款</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="懒虫商城" />
+    <meta name="keywords" content="懒虫商城" />
+    <meta name="author" content="懒虫商城" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="__HOMESKIN__Images/ico/favicon.ico" type="image/x-icon">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/response.css" />
+    <!-- jQuery -->
+    <script src="__HOMESKIN__js/jquery.js" type="text/javascript"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="__HOMESKIN__js/custom.js"></script>
+</head>
+<body>
+    <div class="ng-scope">
+        <p class="orderno ng-binding ng-scope">订单编号：{$orderNum}</p>
+        <div class="top-pay ng-scope">
+            <p class="ng-binding">{$row['name']}&emsp;{$row['phone']}<br></p>
+            <p class="ng-binding">{$row['address']}</p>
+            <p class="ng-binding">备注：{$remark}</p>
+        </div>
+        <div class="clear ng-scope"></div>
+        <div class="paytype">
+            <h4>使用积分抵扣现金</h4>
+        </div>
+        <div class="coupon">
+            <input type="checkbox"/> 账户共有225个积分，本次使用 <input type="number" class="number" max="225" min="1" value="100" /> 个 <span class="red">￥0.10</span>
+        </div>
+        <p class="nocoupon ng-scope ng-hide">无可用积分</p>
+        <div class="paytype">
+            <h4>商品金额总计</h4>
+        </div>
+        <div class="bottom-pay ng-scope">
+            <p>总计：<span class="ng-binding">￥{$totalPrice}元</span></p>
+            <p>积分抵扣：<span class="ng-binding">￥10.00 元</span></p>
+            <p>应付总额：<span class="ng-binding">￥20.56 元</span></p>
+        </div>
+
+        <div class="paytype ng-scope">
+            <h4>支付方式</h4>
+            <ul>
+                <li class="wxpay" ng-click="payselect('wxpay')">
+                    <img src="__HOMESKIN__img/payok.jpg" alt="" class="show">
+                    <img src="__HOMESKIN__img/payno.jpg" alt="" class="hide">
+                    微信支付
+                </li>
+            </ul>
+        </div>
+        <div class="clear ng-scope" style="height: 90px;"></div>
+
+        <!-- 底部结算导航 -->
+        <div class="cart cart-pay ng-scope">
+            <div class="r"><a href="javascript:;">付 款</a></div>
+            <div class="l ng-binding c">
+                实付 ￥<label id="totalmoney">5.46</label>
+            </div>
+        </div>
+        <!-- /底部结算导航 -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Title here -->
+    <title>懒虫商城-个人信息</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="懒虫商城" />
+    <meta name="keywords" content="懒虫商城" />
+    <meta name="author" content="懒虫商城" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="__HOMESKIN__Images/ico/favicon.ico" type="image/x-icon">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/response.css" />
+    <!-- jQuery -->
+    <script src="__HOMESKIN__js/jquery.js" type="text/javascript"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="__HOMESKIN__js/custom.js"></script>
+    <style>
+
+        .per{
+            height: 60px;
+            border: 1px solid darkgrey;
+            line-height: 50px;
+            border-left: none;
+            border-right: none;
+        }
+        .dv{
+            font-size: 20px;
+            float: left;
+        }
+        .vd{
+            font-size: 20px;
+            float: right;
+        }
+
+        #img{
+
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="ng-scope PB50">
+    <div class="comment-box">
+        <input type="file" name="pic" id="pic" onchange="selPic()" style="display: none">
+
+        <div class="per">
+            <div class="dv">头像</div>
+            <div class="vd"> > </div>
+            <div class="vd">
+                <label for="pic">
+                <img src="__HOMESKIN__{$avatar}" id="img" alt="" style="width: 50px;height: 45px;">
+                </label>
+            </div>
+        </div>
+        <div class="per" onclick="saveName()">
+            <div class="dv">昵称</div>
+            <div class="vd"> > </div>
+            <div class="vd">{$username}</div>
+        </div>
+        <div class="per" onclick="chooseDay()">
+            <div class="dv">生日</div>
+            <div class="vd"> > </div>
+            <div class="vd">{$birthday}</div>
+        </div>
+        <div class="per" onclick="chooseAddress()">
+            <div class="dv">收货地址</div>
+            <div class="vd"> > </div>
+            <div class="vd">修改/添加</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+
+    function selPic() {
+        //图片预览;
+        pic = document.getElementsByName('pic')[0].files[0];
+        var imgSrc = window.URL.createObjectURL(pic); //图片资源的url 读取出来 二进制
+        console.log(imgSrc);
+        document.getElementById('img').src = imgSrc;
+        //img 元素插入到div里面
+        var fd = new FormData();
+        fd.append('pic',pic);
+        //1.创建对象
+        var xhr = new XMLHttpRequest();
+        //2.打开
+        xhr.open('post',"{:U('upload')}",true);
+        //4.发送
+        //监听 文件上传的方法
+
+        xhr.send(fd);
+
+    }
+
+    function saveName() {
+
+        location.href = "{:U('saveName')}";
+
+    }
+
+    function chooseDay() {
+
+        location.href = "{:U('chooseDay')}";
+    }
+
+    function chooseAddress() {
+
+        location.href = "{:U('addressList')}";
+
+    }
+
+
+</script>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Title here -->
+    <title>懒虫商城-外卖</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="懒虫商城" />
+    <meta name="keywords" content="懒虫商城" />
+    <meta name="author" content="懒虫商城" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="__HOMESKIN__Images/ico/favicon.ico" type="image/x-icon">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/response.css" />
+    <!-- jQuery -->
+    <script src="__HOMESKIN__js/jquery.js" type="text/javascript"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="__HOMESKIN__js/custom.js"></script>
+</head>
+<body style="position:relative;">
+    <div class="ng-scope">
+        <div class="loca ng-scope">
+            <a class="change ng-binding" href="address.html">{$address}<span>[切换]</span></a>
+        </div>
+        <div class="ng-scope">
+            <img src="__HOMESKIN__img/tof/timg-6.jpg" width="100%">
+        </div>
+        <ul class="lists lists-tof ng-scope">
+            <!-- hotfood -->
+            <volist name="rows" id="fd" empty="暂时没有数据">
+            <li class="on" price="{$fd['price']}" cart="2">
+                <div class="img view"><img src="__HOMESKIN__img/tof/{$fd['image']}" alt="..." /></div>
+                <p class="t">{$fd['food']}</p>
+                <p class="price">￥{$fd['price']}</p>
+                <div class="showaddcart meshop">
+                    <div class="num_con">
+                        <img src="__HOMESKIN__img/num_l.png" onclick="reduceNum({$fd['id']})" class="img-responsive num_l" alt="...">
+                        <span class="number">0</span>
+                        <img src="__HOMESKIN__img/num_r.png" onclick="addNum({$fd['id']})" class="img-responsive num_r" alt="...">
+                    </div>
+                </div>
+                <div class="detail">
+                    <div class="back" onclick="CloseDetail(this);"><img src="__HOMESKIN__img/close.png" class="img-responsive" alt="..." /></div>
+                    <div class="title">商品详情</div>
+                    <div class="img"><img src="__HOMESKIN__img/tof/timg-6.jpg" class="img-responsive" alt="..." /></div>
+                    <div class="desc">
+                        {$fd['detail']}
+                    </div>
+                </div>
+            </li>
+            </volist>
+        </ul>
+    </div>
+    <!--底部结算导航-->
+    <div class="cart ng-scope">
+        <div class="r"><a href="{:U('cart')}">去结算</a></div>
+        <div class="l ng-binding">
+            ￥<label id="totalmoney">0</label>
+        </div>
+        <i id="totalcartnumber" class="ng-binding cartnum">0</i>
+        <a href="cart.html"><img src="__HOMESKIN__img/shop_cart01.png" alt="..."></a>
+    </div>
+    <!--/底部结算导航-->
+</body>
+</html>
+<script>
+
+    //点击加号;
+    function addNum(id) {
+        //用户点击了一次加号,购物车中该商品的数量+1;
+        $.get("{:U('addNum')}",{id:id})
+    }
+
+    //点击减号;
+    function reduceNum(id) {
+        //用户点击了一次减号,该用户的购物车中此商品数量-1;
+        $.get("{:U('reduceNum')}",{id:id})
+    }
+
+</script>

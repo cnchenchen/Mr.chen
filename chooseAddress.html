@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>：jQuery省市区三级联动插件city-picker</title>
+    <!--可无视-->
+    <link href="__HOMESKIN__css/main.css" rel="stylesheet" type="text/css" />
+    <!--必要样式-->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="__HOMESKIN__css/city-picker.css" rel="stylesheet" type="text/css" />
+    <style>
+
+        #dv{
+            margin: 0px auto;
+            height: 50px;
+            line-height: 50px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid grey;
+            background-color: lightgrey;
+            font-size: 20px;
+        }
+
+        #street,#person,#phone{
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid goldenrod;
+            height: 50px;
+
+        }
+    </style>
+</head>
+<body>
+<!-- Content -->
+<div id="dv" onclick="back()">
+     &nbsp; < &emsp;我的收获地址
+</div>
+<div class="container">
+    <div class="docs-methods">
+        <form class="form-inline" action="{:U('addAddress')}" method="post">
+            <div id="distpicker">
+                <div class="form-group">
+                    <div style="position: relative;">
+                        <span>收获地址:</span>
+                        <input id="city-picker3" name="address" class="form-control" readonly type="text" value="河南省/郑州市/二七区" data-toggle="city-picker" style="height: 70px;">
+                        <br>
+                        <span>详细地址:</span>
+                        <input type="text" id="street" name="street" placeholder="请填写详细地址">
+                        <br>
+                        <br>
+                        <span>联系人:</span>
+                        <input type="text" id="person" name="person" placeholder="请填写收货人的姓名">
+                        <br>
+                        <br>
+                        <span>手机号:</span>
+                        <input type="text" id="phone" name="phone" placeholder="请填写收获手机号码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-warning" id="reset" type="button">重置</button>
+                    <button class="btn btn-danger" id="destroy" type="submit">添加地址</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="__HOMESKIN__js/jquery.js"></script>
+<script src="__HOMESKIN__js/bootstrap.js"></script>
+<script src="__HOMESKIN__js/city-picker.data.js"></script>
+<script src="__HOMESKIN__js/city-picker.js"></script>
+<script src="__HOMESKIN__js/main.js"></script>
+
+</body>
+</html>
+<script>
+
+    function back() {
+
+        location.href = "{:U('addressList')}";
+
+    }
+
+</script>

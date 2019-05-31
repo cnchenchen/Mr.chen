@@ -1,0 +1,62 @@
+﻿<layout name="Layout/layout" />
+<include file="Layout/header"/>
+<body class="PB50">
+    <!--slide-->
+    <div class="slide">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="{:U('bannerDetail')}">
+                    <img src="__HOMESKIN__img/slide001.jpg" />
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="{:U('bannerDetail')}">
+                    <img src="__HOMESKIN__img/slide002.jpg" />
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="{:U('bannerDetail')}">
+                    <img src="__HOMESKIN__img/slide003.jpg" />
+                </a>
+            </div>
+        </div>
+        <div class="pagination"></div>
+    </div>
+    <!--/slide-->
+
+    <div class="ng-scope">
+        <div class="addWrap ng-scope">
+            <a href="{:U('address')}" class="map_box"><img src="__HOMESKIN__img/map_icon.png" class="img-responsive" alt="..."></a>
+        </div>
+        <div class="location_index ng-scope">
+            <div class="addr">
+                <a href="{:U('address')}">
+                    <p class="ng-binding">蓝坤大厦 ></p>
+                </a>
+            </div>
+            <ul class="index_menu">
+                <li>
+                    <a href="{:U('shop')}">
+                        <img src="__HOMESKIN__img/index01.png" class="img-responsive" alt="..." />
+                        <p>进入超市</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('tof')}">
+                        <img src="__HOMESKIN__img/index02.png" class="img-responsive" alt="..." />
+                        <p>热食</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('shop')}">
+                        <img src="__HOMESKIN__img/index03.png" class="img-responsive" alt="..." />
+                        <p>水果</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="clear ng-scope"></div>
+    </div>
+
+</body>
+</html>

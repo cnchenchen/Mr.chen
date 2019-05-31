@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Title here -->
+    <title>懒虫商城-设置</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="懒虫商城" />
+    <meta name="keywords" content="懒虫商城" />
+    <meta name="author" content="懒虫商城" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="__HOMESKIN__Images/ico/favicon.ico" type="image/x-icon">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/response.css" />
+    <!-- jQuery -->
+    <script src="__HOMESKIN__js/jquery.js" type="text/javascript"></script>
+    <script src="__HOMESKIN__layer/layer.js"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="__HOMESKIN__js/custom.js"></script>
+    <style>
+
+        .per{
+            height: 50px;
+            border: 1px solid darkgrey;
+            line-height: 40px;
+            border-left: none;
+            border-right: none;
+        }
+        .dv{
+            float: left;
+        }
+        .vd{
+            font-size: 20px;
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+<div class="ng-scope PB50">
+    <img src="__HOMESKIN__img/cs_001.jpg" class="img-responsive" alt="">
+    <div class="comment-box">
+        <div class="per" onclick="perPic()">
+            <div class="dv">个人信息</div>
+            <div class="vd"> > </div>
+        </div>
+        <div class="per" onclick="changePhone()">
+            <div class="dv">换绑手机</div>
+            <div class="vd"> > </div>
+        </div>
+        <div class="per" onclick="setPassword()">
+            <div class="dv">设置密码</div>
+            <div class="vd"> > </div>
+        </div>
+        <div class="per">
+            <div class="dv">支付设置</div>
+            <div class="vd"> > </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="box">
+            <div style="text-align:center;"><button class="btnSubmit">退出账户</button></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $('.btnSubmit').click(function () {
+        layer.confirm('确认退出当前账户吗?',{
+            btn:['确认','取消']//按钮
+            },function () {
+            var t = 0;//验证参数,检验是否连接成功;
+            $.get("{:U('logout')}",{t:t},function (data) {
+                if(data.status == 1){
+                    location.href = "{:U('login')}";
+                }else{
+                    layer.alert('系统繁忙,请稍后再试', {
+                        skin: 'layui-layer-lan'
+                        ,closeBtn: 0
+                        ,anim: 4 //动画类型
+                    });
+                }
+                },'json')
+
+            },function () {
+
+           /* layer.alert('已取消退出', {
+                skin: 'layui-layer-lan'
+                ,closeBtn: 0
+                ,anim: 4 //动画类型
+            });*/
+            layer.msg('已取消退出', {time: 3000, icon:6});
+        });
+
+    });
+    //-----
+    //-----
+
+    function perPic(){
+        //跳转至个人信息页面;
+       location.href = "{:U('perinfo')}";
+
+    }
+
+    function changePhone(){
+        //跳转至更换绑定的手机号;
+        location.href = "{:U('changePhone')}";
+    }
+
+    function setPassword(){
+
+        //跳转至设置密码页面;
+        location.href = "{:U('setPassword')}";
+    }
+</script>

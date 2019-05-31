@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Title here -->
+    <title>懒虫商城-结算--添加收货地址</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="懒虫商城" />
+    <meta name="keywords" content="懒虫商城" />
+    <meta name="author" content="懒虫商城" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="__HOMESKIN__Images/ico/favicon.ico" type="image/x-icon">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/response.css" />
+    <!-- jQuery -->
+    <script src="__HOMESKIN__js/jquery.js" type="text/javascript"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="__HOMESKIN__js/custom.js"></script>
+</head>
+<body style="background:#F5F5F5;">
+    <div class="ng-scope">
+        <div class="btn btn-default add_addr_title">添加收货地址</div>
+        <div class="addr_con">
+            <div class="add_addr_dasha">蓝坤大厦</div>
+            <input class="aui-Address-box-input" id="name" placeholder="姓名或者昵称" type="text">
+            <input class="aui-Address-box-input" id="phone" placeholder="手机号码" type="text">
+            <select class="aui-Address-box-select" id="dong">
+                <option selected="selected" value="">选择栋</option>
+                <option value="A">A栋</option>
+                <option value="B">B栋</option>
+                <option value="C">C栋</option>
+                <option value="D">D栋</option>
+                <option value="E">E栋</option>
+                <option value="F">F栋</option>
+                <option value="G">G栋</option>
+            </select>
+            <select class="aui-Address-box-select" id="ceng">
+                <option selected="selected" value="">选择层</option>
+                <option value="1层">1层</option>
+                <option value="2层">2层</option>
+                <option value="3层">3层</option>
+                <option value="4层">4层</option>
+                <option value="5层">5层</option>
+                <option value="6层">6层</option>
+                <option value="7层">7层</option>
+                <option value="8层">8层</option>
+                <option value="9层">9层</option>
+                <option value="10层">10层</option>
+                <option value="11层">11层</option>
+                <option value="12层">12层</option>
+                <option value="13层">13层</option>
+            </select>
+            <input class="aui-Address-box-input" id="fang" placeholder="房间号" type="text">
+            <a href="javascript:;" class="red-color" id="btnSave">保 存</a>
+        </div>
+    </div>
+
+    <!--dialog-->
+    <div id="_alert_" class="weui_dialog_alert hide">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title" id="alert-title"></strong></div>
+            <div class="weui_dialog_bd" id="alert-msg"></div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_btn_dialog primary" onclick="weui_dialog_close()">确定</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

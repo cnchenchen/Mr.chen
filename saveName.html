@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Title here -->
+    <title>修改用户名</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="懒虫商城" />
+    <meta name="keywords" content="懒虫商城" />
+    <meta name="author" content="懒虫商城" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="__HOMESKIN__Images/ico/favicon.ico" type="image/x-icon">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__HOMESKIN__css/response.css" />
+
+    <!-- jQuery -->
+    <script src="__HOMESKIN__js/jquery.js" type="text/javascript"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="__HOMESKIN__js/custom.js"></script>
+    <script src="__HOMESKIN__js/jquery-1.10.2.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+
+    <style>
+
+        .btn{
+            background-color: #f0ad4e;
+            margin: 0 auto;
+            width: 100px;
+            height: 30px;
+        }
+
+        #username{
+
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            border-bottom: 1px solid green;
+
+        }
+
+        .error{
+            color: orangered;
+            margin-left: 70px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="ng-scope PB50">
+    <img src="__HOMESKIN__img/cs_004.jpg" class="img-responsive" alt="">
+    <div class="comment-box">
+        <form action="{:U('saveNameAction')}" method="post" id="form1">
+            <div class="box">
+                <label>用户名：</label>
+                <br>
+                <input class="aui-Address-box-input" id="username" value="{$username}" type="text" name="username"/>
+                <br>
+                <br>
+                <br>
+                <span>以中文或英文字母开头,限4~16个字符,一个汉字为三个字符</span>
+            </div>
+            <br>
+            <div class="box">
+                <input type="submit" value="确定" class="btn">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    //validate 验证,字体是在lable框里显示的,class=errer颜色可以在css中设置.
+    $('#form1').validate({
+
+        rules:{
+            username:{
+                required:true,
+            },
+
+
+        },
+
+        messages:{
+
+            username:{
+                required:"请输入用户名",
+            },
+
+        }
+
+    });
+
+
+</script>
